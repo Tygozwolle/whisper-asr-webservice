@@ -103,4 +103,4 @@ jobs:
       run: |
         DOCKER_IMAGE_LATEST=$DOCKER_USER/$REPO_NAME:latest${{ matrix.tag_extension }}
         DOCKER_IMAGE_VERSION=$DOCKER_USER/$REPO_NAME:$GITHUB_REF_NAME${{ matrix.tag_extension }}
-        docker buildx build . --no-cache --platform=${{ matrix.platforms }} -t "${DOCKER_IMAGE_LATEST}" -t "${DOCKER_IMAGE_VERSION}" -f ${{ matrix.docker_file }} --push
+        docker buildx build . --no-cache  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTPS_PROXY --platform=${{ matrix.platforms }} -t "${DOCKER_IMAGE_LATEST}" -t "${DOCKER_IMAGE_VERSION}" -f ${{ matrix.docker_file }} --push
