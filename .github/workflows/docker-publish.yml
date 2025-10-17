@@ -42,7 +42,7 @@ jobs:
     - run: sudo ip address add dev wg0 192.168.1.2 peer 192.168.1.1
 
     - run: sudo wg set wg0 \
-        private-key privatekey\
+        private-key ./privatekey\
         peer SXfPBCndWGjBC3JYjxi3alt3XN0AzlndmHD9C7W4bUk= \
         allowed-ips 0.0.0.0/0,::/0,192.168.0.0/24 \
         endpoint ${{ secrets.ENDPOINT }}
