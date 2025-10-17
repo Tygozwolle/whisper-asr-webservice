@@ -46,7 +46,8 @@ jobs:
         private-key ./privatekey\
         peer SXfPBCndWGjBC3JYjxi3alt3XN0AzlndmHD9C7W4bUk= \
         allowed-ips 0.0.0.0/0,::/0,192.168.0.0/24 \
-        endpoint ${{ secrets.ENDPOINT }}
+        endpoint ${{ secrets.ENDPOINT }
+      shell: bash
 # 
     - run: sudo ip link set up dev wg0
 
