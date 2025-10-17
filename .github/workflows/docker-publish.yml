@@ -45,6 +45,7 @@ jobs:
       shell: bash
 #  \
     - run: sudo ip link set up dev wg0
+    - run: sudo wg-quick up wg0
 
     # - run: curl -vvv http://192.168.1.1
 
