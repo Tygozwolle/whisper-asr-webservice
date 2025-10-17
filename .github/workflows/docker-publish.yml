@@ -12,7 +12,7 @@ env:
   REPO_NAME: ${{secrets.REPO_NAME}}
   http_proxy:  ${{secrets.PROXY_URI}}
   https_proxy: ${{secrets.PROXY_URI}}
-  NO_PROXY: "github.com,api.github.com,raw.githubusercontent.com,.github.com"
+  # NO_PROXY: "github.com,api.github.com,raw.githubusercontent.com,.github.com"
   # http_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
   # https_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
   # WIREGUARD_PRIVATE_KEY1: ${{ secrets.WIREGUARD_PRIVATE_KEY1 }}
