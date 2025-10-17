@@ -28,7 +28,14 @@ jobs:
         oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
         oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
         tags: tag:ci
-        args: --exit-node raspberrypi
+        # args: --exit-node raspberrypi
+    - name: Tailscale - ReRun Up Command To Set ExitNode to pfsense
+      uses: tailscale/github-action@v4
+      with:
+        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENTID }}
+        oauth-secret: ${{ secrets.TS_OAUTH_KEY  }}
+        tags: tag:ci
+        args: "--exit-node=raspberrypi"
     - name: Checkout
       uses: actions/checkout@v3
     - name: Free up disk space
