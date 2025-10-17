@@ -10,8 +10,10 @@ env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   REPO_NAME: ${{secrets.REPO_NAME}}
-  http_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
-  https_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
+  http_proxy:  ${{secrets.PROXY_URI}}
+  https_proxy: ${{secrets.PROXY_URI}}
+  # http_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
+  # https_proxy: http://${{ secrets.PROXY_USER }}:${{ secrets.PROXY_PASS }}@${{ secrets.HOST }}:3128
   # WIREGUARD_PRIVATE_KEY1: ${{ secrets.WIREGUARD_PRIVATE_KEY1 }}
   # WIREGUARD_PRIVATE_KEY2: ${{ secrets.WIREGUARD_PRIVATE_KEY2 }}
 jobs:
