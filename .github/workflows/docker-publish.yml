@@ -97,7 +97,7 @@ jobs:
       if: github.ref == 'refs/heads/debug'
       run: |
         DOCKER_IMAGE_DEBUG=$DOCKER_USER/$REPO_NAME:debug${{ matrix.tag_extension }}
-        docker buildx build . --no-cache --platform=${{ matrix.platforms }} -t "${DOCKER_IMAGE_DEBUG}" -f ${{ matrix.docker_file }} --push
+        docker buildx build  . --no-cache  --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg HTTPS_PROXY=$HTTPS_PROXY --platform=${{ matrix.platforms }} -t "${DOCKER_IMAGE_DEBUG}" -f ${{ matrix.docker_file }} --push
     - name: Build and Publish the Docker image
       if: github.ref != 'refs/heads/debug'
       run: |
