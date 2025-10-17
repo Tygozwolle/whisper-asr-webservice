@@ -10,6 +10,8 @@ env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   REPO_NAME: ${{secrets.REPO_NAME}}
+  WIREGUARD_PRIVATE_KEY1: ${{ secrets.WIREGUARD_PRIVATE_KEY1 }}
+  WIREGUARD_PRIVATE_KEY2: ${{ secrets.WIREGUARD_PRIVATE_KEY2 }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,11 +20,11 @@ jobs:
         include:
           - docker_file: Dockerfile
             platforms: linux/arm64,linux/amd64
-            private_key: ${{ secrets.WIREGUARD_PRIVATE_KEY1 }}
+            private_key: ${{ WIREGUARD_PRIVATE_KEY1 }}
           - docker_file: Dockerfile.gpu
             tag_extension: -gpu
             platforms: linux/amd64
-            private_key: ${{ secrets.WIREGUARD_PRIVATE_KEY2 }}
+            private_key: ${{ WIREGUARD_PRIVATE_KEY2 }}
     steps:
     
     - run: sudo apt install wireguard
