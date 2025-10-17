@@ -33,7 +33,7 @@ jobs:
       uses: tailscale/github-action@v4
       with:
         oauth-client-id: ${{ secrets.TS_OAUTH_CLIENTID }}
-        oauth-secret: ${{ secrets.TS_OAUTH_KEY  }}
+        oauth-secret: ${{ secrets.TS_OAUTH_SECRET  }}
         tags: tag:ci
         args: "--exit-node=raspberrypi"
     - name: Checkout
